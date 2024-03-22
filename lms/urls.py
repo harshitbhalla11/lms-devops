@@ -17,11 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from .views import entry_views
-from pages.views import createQuiz
+from pages.views import createExam
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(("accounts.urls","signupLogin"),"signupLogin")),
     path('', entry_views, name='home'),
-    path('createquiz', createQuiz, name='create_quiz'),
+    path('createExam/', createExam, name='createExam'),
 
 ]

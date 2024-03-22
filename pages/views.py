@@ -1,4 +1,8 @@
 from django.shortcuts import render
 
-def createQuiz(request):
-    return render(request, 'create-quiz.html', {})
+def createExam(request):
+    return render(request, 'createExam.html', {})
+
+
+
+
