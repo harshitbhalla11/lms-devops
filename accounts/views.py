@@ -23,10 +23,7 @@ def authenticationView(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST or None )
         if form.is_valid():
-            email = request.POST.get('email')
-         
             user = form.save(commit=False) 
-            user.email = email 
             if 'adminUserCheckbox' in request.POST:
                 user.is_staff = True
             user.save()
