@@ -1,5 +1,5 @@
 """
-URL configuration for lms project.
+URL configuration for team_talk project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,8 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+from .views import entry_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(("accounts.urls","signupLogin"),"signupLogin")),
+    path('', entry_views, name='home'),
 ]
