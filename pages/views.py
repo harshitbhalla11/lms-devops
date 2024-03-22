@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def createQuiz(request):
+    return render(request, 'create-quiz.html', {})
