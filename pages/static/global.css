@@ -1,0 +1,26 @@
+.nav-logo{
+    max-width: 50px;
+    margin-left: 10px;
+    transform: scale(1.2);
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adjust values as needed */
+}
+.nav-logo-heading{
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #033E8C;
+}
+.nav-link{
+    font-weight: 500;
+    margin-left: 20px;
+}
+.nav-content-container{
+    margin-left: 80px;
+}
+
+.nav-link:hover{
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
