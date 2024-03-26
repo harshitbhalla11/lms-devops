@@ -1,0 +1,43 @@
+<html>
+    <head>
+         {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global.css' %}">  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap"
+      rel="stylesheet">    
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        <div class="container form-container">
+            <h2 class="text-center">Create Exam</h2>
+            <form method="post" action="{% url 'create_exam' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration (in minutes):</label>
+                    <input type="number" class="form-control" id="duration" name="duration" required>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="visibility" name="visibility">
+                    <label class="form-check-label" for="visibility">Visible to Students</label>
+                </div>
+                <div class="text-center my-3">
+                    <button type="submit" class="btn btn-primary">Create Exam</button>
+                </div>
+            </form>
+        </div>
+        {% include 'footer.html' %}
+    </body>
+    
+</html>

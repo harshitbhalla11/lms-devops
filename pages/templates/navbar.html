@@ -33,8 +33,12 @@
         {% if request.user.is_authenticated %}
             {% if request.user.is_staff %}
               <li class="nav-item">
-                <a class="nav-link" href="/groups">Create Exam</a>
+                <a class="nav-link" href="/createExam">Create Exam</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Examlist">Exam List</a>
+              </li>
+              
             {% else %}
               <li class="nav-item">
                 <a class="nav-link" href="/groups">student link</a>
