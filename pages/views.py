@@ -17,7 +17,8 @@ def exam(request, id):
     return render(request, 'teacher/exam.html', {'exam': exam, 'questions': questions})
 
 def results(request,id):
-    return render (request,'teacher/results.html')
+    results= QuizAttempt.objects.filter(exam_id=id)
+    return render (request,'teacher/results.html',{'results':results})
 
 
 # student views 
