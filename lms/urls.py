@@ -17,14 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from .views import entry_views
-from pages.views import createExam, Examlist, create_exam
+from pages.views import createExam, Examlist, create_exam, exam, add_question
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(("accounts.urls","signupLogin"),"signupLogin")),
     path('', entry_views, name='home'),
     path('createExam/', createExam, name='createExam'),
     path('Examlist/', Examlist, name='Examlist'),
-    # add data to model 
-    path('create_exam/', create_exam, name='create_exam'),
+    path('exam/<int:id>/', exam, name='exam'),
+
     
+    path('create_exam/', create_exam, name='create_exam'),
+    path('add_question/<int:exam_id>/',add_question, name='add_question'),
 ]   

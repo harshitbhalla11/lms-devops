@@ -1,0 +1,71 @@
+
+
+<html>
+    <head>
+         {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global.css' %}">  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap"
+      rel="stylesheet">    
+    </head>
+    <body>
+    
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Exam List</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        </head>
+        <body>
+            <div class="container question-container">
+                <h2>Add Question</h2>
+                <form method="post" id="questionForm"  action="{% url 'add_question' exam.id %}" >
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="question">Question:</label>
+                        <input type="text" class="form-control question-quiz" id="question" name="question">
+                    </div>
+                    <div class="form-group">
+                        <label for="marks" class="marks-label">Marks:</label>
+                        <input type="text" class="form-control question-quiz" id="marks" name="marks">
+                    </div>
+                    
+                    <p>Select correct option:</p>
+
+                    <div class="form-group">
+                        <input  class="radio-btn" type="radio" id="option1" name="correct" value="1">
+                        <label for="option1">Option 1:</label>
+                        <input type="text" class="form-control option-input" id="option1" name="option1">
+                    </div>
+
+                    <div class="form-group">
+                        <input  class="radio-btn" type="radio" id="option2" name="correct" value="2">
+                        <label for="option2">Option 2:</label>
+                        <input type="text" class="form-control option-input" id="option2" name="option2">
+                    </div>
+
+                    <div class="form-group">
+                        <input  class="radio-btn" type="radio" id="option3" name="correct" value="3">
+                        <label for="option3">Option 3:</label>
+                        <input type="text" class="form-control option-input" id="option3" name="option3">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="radio-btn" type="radio" id="option4" name="correct" value="4">
+                        <label for="option4">Option 4:</label>
+                        <input type="text" class="form-control option-input" id="option4" name="option4">
+                    </div>
+                   
+                    <button type="submit" class="btn btn-primary" >Add Question</button>
+                </form>
+            </div>
+        </body>
+        </html>
+    </body>
+</html>

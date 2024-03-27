@@ -1,0 +1,85 @@
+<html>
+    <head>
+         {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global.css' %}">  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap"
+      rel="stylesheet">    
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Exam List</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        </head>
+        <body>
+            <div class="container">
+                {% comment %} action="{% url 'exam_update' exam.id %}" {% endcomment %}
+                <form method="post" >
+                    {% csrf_token %}
+                    <h1>Update Exam Details</h1>
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control" id="title" name="title" value="{{ exam.title }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" id="description" name="description" rows="3">{{ exam.description }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration (in minutes):</label>
+                        <input type="number" class="form-control" id="duration" name="duration" value="{{ exam.duration }}">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="visibility" name="visibility" {% if exam.visibility %}checked{% endif %}>
+                        <label class="form-check-label" for="visibility">Visible to Students</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary my-2">Update Details</button>
+                </form>
+
+            
+                {% include 'teacher/addQuestion.html' %}
+                
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Option 1</th>
+                            <th>Option 2</th>
+                            <th>Option 3</th>
+                            <th>Option 4</th>
+                            <th>Correct Answer</th>
+                            <th>Marks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for question in questions %}
+                        <tr>
+                            <td>{{ question.question }}</td>
+                            <td>{{ question.option1 }}</td>
+                            <td>{{ question.option2 }}</td>
+                            <td>{{ question.option3 }}</td>
+                            <td>{{ question.option4 }}</td>
+                            <td>{{ question.correct_answer }}</td>
+                            <td>{{ question.marks }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+        </body>
+        </html>
+        
+        {% include 'footer.html' %}
+    </body>
+</html>
