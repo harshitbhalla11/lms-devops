@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from .views import entry_views
-from pages.views import createExam, Examlist, create_exam, exam, add_question, results, studentExamList,examination, submit_exam
+from pages.views import createExam, Examlist, create_exam, exam, add_question, results, studentExamList,examination, submit_exam,update_exam
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(("accounts.urls","signupLogin"),"signupLogin")),
@@ -32,6 +32,6 @@ urlpatterns = [
     path('create_exam/', create_exam, name='create_exam'),
     path('add_question/<int:exam_id>/',add_question, name='add_question'),
     path('submit_exam/<int:exam_id>/', submit_exam, name='submit_exam'),
+    path('update_exam/<int:exam_id>/', update_exam, name='update_exam'),
 
-    
 ]   

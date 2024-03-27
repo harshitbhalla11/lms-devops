@@ -129,7 +129,7 @@ def update_exam(request, exam_id):
         
         exam.save()
         
-        return redirect('some-url-name') 
-        
-    return render(request, 'your_template.html', {'exam': exam})
+        return redirect('exam', id=exam_id) 
+
+    return redirect('exam', id=exam_id) 
 

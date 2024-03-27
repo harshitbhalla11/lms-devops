@@ -6,4 +6,4 @@ def entry_views(request):
         return render(request, 'home-page.html', {})    
     else:
         return render(request, 'landing-page.html', {})
-    
+     
