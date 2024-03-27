@@ -4,6 +4,10 @@
     <link rel="stylesheet" href="{% static 'global.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
     <link
       href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap"
       rel="stylesheet"
@@ -11,28 +15,108 @@
   </head>
   <body>
     {% include 'navbar.html' %}
-    <div class="page-view">
-      <div class="row">
-        
-        <div class=" col-md-6 text-container">
-            <img
-        class="nav-logo ml-3"
-        src="{% static 'images/teamtalklogo.png' %}"
-        alt="logo"
-      />
-          <h1 class="image-text">Team Task</h1>
-        </div>
-        <div class="col-md-6">
-          <img
-            class="landing-img"
-            src="{% static 'images/landing-img.png' %}"
-            alt="Card image cap"
-          />
-        </div>
+    <div class="page-view p-5">
+      <div class="text-center" >
+        <h1 style="font-family: cursive; font-size: 52px;" class="text-center p-5">Empowering students and teachers with seamless collaboration</h1>
+        <p style="color: #033e8c;">Streamlining education through personalized learning paths and efficient communication channels for enhanced academic success</p>
       </div>
+      <div class="text-center">
+       
+          <img src="{% static 'images/clip.svg' %}" width="500px" height="500px">
+      
+        <div class="column justify-content-center align-items-center" style="padding: 0 8rem ;">
+        
+          <div class="custom-card" style="margin-bottom: 4rem;
+          position: relative;
+          padding: 2rem;
+          background-color:#F3F4F6 !important;
+          border-radius: 0.625rem;
+          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);">
+            <div style="
+            position: absolute;
+            top: 0;
+            left: auto;
+            bottom: auto;
+            right: 2rem;
+            width: 70px;
+            height: 70px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F9FAFB;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;">
+          <img src="https://odoocdn.com/openerp_website/static/src/img/icons/yellow_star.svg" alt="" height="35px">
+            </div>
+          <h4 class="mb-4">Exams Quizess</h4>
+          <p style="font-size: 20px;">Evaluate and support your learning effortlessly.</p>  
+          </div>
+          <div class="custom-card" style="margin-bottom: 4rem;
+          position: relative;
+          padding: 2rem;
+          background-color:#F3F4F6 !important;
+          border-radius: 0.625rem;
+          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);">
+           <div style="
+           position: absolute;
+           top: 0;
+           left: auto;
+           bottom: auto;
+           right: 2rem;
+           width: 70px;
+           height: 70px;
+           display: -webkit-box;
+           display: -webkit-flex;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           background-color: #F9FAFB;
+           border-bottom-right-radius: 50%;
+           border-bottom-left-radius: 50%;">
+         <img src="https://odoocdn.com/openerp_website/static/src/img/icons/yellow_star.svg" alt="" height="35px">
+           </div>
+         <h4 class="mb-4">Exams Quizess</h4>
+         <p style="font-size: 20px;">Evaluate and support your learning effortlessly.</p>  
+         </div>
+  
+         <div class="custom-card" style="margin-bottom: 4rem;
+         position: relative;
+         padding: 2rem;
+         background-color:#F3F4F6 !important;
+         border-radius: 0.625rem;
+         box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);">
+    <div style="
+    position: absolute;
+    top: 0;
+    left: auto;
+    bottom: auto;
+    right: 2rem;
+    width: 70px;
+    height: 70px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F9FAFB;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;">
+   <img src="https://odoocdn.com/openerp_website/static/src/img/icons/yellow_star.svg" alt="" height="35px">
+    </div>
+   <h4 class="mb-4">Exams Quizess</h4>
+   <p style="font-size: 20px;">Evaluate and support your learning effortlessly.</p>  
+   </div>
+  </div>
+      </div>
+     
+ </div>
+      
+       
+     
 
-      <p class="text-center heading-font">Why Team Task ?</p>
-      <div class="row justify-content-center py-5">
+      <!-- <div class="row justify-content-center p-5">
         <div class="card mx-5" style="width: 18rem">
           <img
             class="card-img-top card-images-home"
@@ -76,7 +160,7 @@
             </p>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     {% include 'footer.html' %}
