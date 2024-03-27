@@ -14,6 +14,9 @@ def exam(request, id):
     questions= Question.objects.filter(exam_id=id)
     return render(request, 'teacher/exam.html', {'exam': exam, 'questions': questions})
 
+def results(request,id):
+    return render (request,'teacher/results.html')
+
 @login_required
 def create_exam(request):
     if request.method == 'POST':

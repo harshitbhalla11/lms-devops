@@ -1,0 +1,32 @@
+<html>
+    <head>
+         {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global.css' %}">  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap"
+      rel="stylesheet">    
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Exam List</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        </head>
+        <body>
+            <div class="container">
+                <p>results</p>
+            </div>
+        </body>
+        </html>
+        
+        {% include 'footer.html' %}
+    </body>
+</html>
