@@ -73,3 +73,37 @@
     padding-left: 30px;
     border-left: 5px solid #033E8C;
 }
+.list-labels{
+    font-size: 20px;
+    color: #033E8C;
+}
+.duration{
+    font-weight: 700;
+}
+.timer{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 7px;
+    background-color: beige;
+}
+.timer-container{
+position: fixed;
+right: 20px;
+top: 80px;
+
+}
+.duration{
+    min-width: 70px
+}
+
+.question{
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.examination-container{
+    background-color: #e1f2f8;
+}

@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Exam, Question
+from .models import Exam, Question, QuizAttempt
+from django.http import HttpResponse
+
 def createExam(request):
     return render(request, 'teacher/createExam.html', {})
 
@@ -16,6 +18,17 @@ def exam(request, id):
 
 def results(request,id):
     return render (request,'teacher/results.html')
+
+
+# student views 
+def examination(request,id):
+    exam = Exam.objects.get(id=id)
+    questions=Question.objects.filter(exam_id=id)
+    return render (request,'student/examination.html', {'exam':exam, 'questions':questions})
+
+def studentExamList(request):
+    exams = Exam.objects.all() 
+    return render(request, 'student/studentExamlist.html', {'exams': exams})
 
 @login_required
 def create_exam(request):
@@ -63,3 +76,38 @@ def add_question(request, exam_id):
         return redirect('exam', id=exam_id) 
 
     return redirect('exam', id=exam_id) 
+
+
+
+def submit_exam(request, exam_id):
+
+    exam = Exam.objects.get(pk=exam_id)
+
+    if request.method == 'POST':
+
+        student = request.user
+        exam_id = request.POST.get('exam_id')
+        total_questions = 0
+        correct_answers = 0
+        total_marks = 0
+        
+        for question in exam.questions.all():
+
+            if f'question_{question.id}' in request.POST:
+                total_questions += 1
+                
+                if request.POST.get(f'question_{question.id}') == str(question.correct_answer):
+                    correct_answers += 1
+                    total_marks += question.marks
+        
+        quiz_attempt = QuizAttempt.objects.create(
+            student=student,
+            exam=exam,
+            total_questions=total_questions,
+            correct_answers=correct_answers,
+            score=total_marks 
+        )
+        return redirect('studentExamList')  
+    else:
+        return HttpResponse(status=405)
+
