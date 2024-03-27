@@ -27,7 +27,7 @@ def examination(request,id):
     return render (request,'student/examination.html', {'exam':exam, 'questions':questions})
 
 def studentExamList(request):
-    exams = Exam.objects.all() 
+    exams = Exam.objects.filter(visibility=True) 
     return render(request, 'student/studentExamlist.html', {'exams': exams})
 
 @login_required
@@ -80,11 +80,9 @@ def add_question(request, exam_id):
 
 
 def submit_exam(request, exam_id):
-
     exam = Exam.objects.get(pk=exam_id)
 
     if request.method == 'POST':
-
         student = request.user
         exam_id = request.POST.get('exam_id')
         total_questions = 0
@@ -110,4 +108,27 @@ def submit_exam(request, exam_id):
         return redirect('studentExamList')  
     else:
         return HttpResponse(status=405)
+
+from django.shortcuts import redirect
+from .models import Exam
+
+def update_exam(request, exam_id):
+    exam = Exam.objects.get(id=exam_id)
+    if request.method == 'POST':
+
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        duration = request.POST.get('duration')
+        visibility = request.POST.get('visibility') == 'on'
+        
+        exam.title = title
+        exam.description = description
+        exam.duration = duration
+        exam.visibility = visibility
+        
+        exam.save()
+        
+        return redirect('some-url-name') 
+        
+    return render(request, 'your_template.html', {'exam': exam})
 
