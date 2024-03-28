@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Exam, Question, QuizAttempt
 from django.http import HttpResponse
+from .forms import ExamForm
 
 def createExam(request):
     return render(request, 'teacher/createExam.html', {})
@@ -31,27 +32,21 @@ def studentExamList(request):
     exams = Exam.objects.filter(visibility=True) 
     return render(request, 'student/studentExamlist.html', {'exams': exams})
 
+from django.shortcuts import render, redirect
+from .forms import ExamForm
+
 @login_required
 def create_exam(request):
     if request.method == 'POST':
-        title = request.POST.get('title')
-        description = request.POST.get('description')
-        duration = request.POST.get('duration')
-        teacher_id = request.user.id
-        visibility = request.POST.get('visibility') == 'on'  
-
-        exam = Exam.objects.create(
-            title=title,
-            description=description,
-            duration=duration,
-            teacher_id=teacher_id,
-            visibility=visibility
-        )
-        
-        return redirect('Examlist')  
-
-    return render(request, 'create_exam.html')
-
+        form = ExamForm(request.POST)
+        if form.is_valid():
+            exam = form.save(commit=False)
+            exam.teacher = request.user
+            exam.save()
+            return redirect('Examlist')
+    else:
+        form = ExamForm()
+    return render(request, 'teacher/createExam.html', {'form': form})
 
 def add_question(request, exam_id):
     exam = Exam.objects.get(id=exam_id)
