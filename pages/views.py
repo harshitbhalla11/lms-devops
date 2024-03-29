@@ -30,7 +30,7 @@ def examination(request,id):
 
 def studentExamList(request):
     exams = Exam.objects.filter(visibility=True) 
-    return render(request, 'student/studentExamlist.html', {'exams': exams})
+    return render(request, 'student/studentExamList.html', {'exams': exams})
 
 from django.shortcuts import render, redirect
 from .forms import ExamForm
