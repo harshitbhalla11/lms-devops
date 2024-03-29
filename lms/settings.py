@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-1y8@m7d%c^xvqakb5+*s-z_sxlt*$m6g7$k@0ek&i8q_u3-g4q
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'x23208813-lms-env.eba-qrqmevzk.eu-west-1.elasticbeanstalk.com'
+    'x23208813-lms-env.eba-qrqmevzk.eu-west-1.elasticbeanstalk.com',
+    '898bd42e51fe407bb38a49362cce3a57.vfs.cloud9.eu-west-1.amazonaws.com'
 ]
 
 
