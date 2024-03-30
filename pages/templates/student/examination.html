@@ -14,10 +14,10 @@
         {% include 'navbar.html' %}
         <div class="examination-container py-4">
             <div class="container">
-                <form method="post" action="{% url 'submit_exam' exam_id=exam.id %}" >
+                <form method="post" id="exam-form" action="{% url 'submit_exam' exam_id=exam.id %}" >
                     {% csrf_token %}
                     <div class="exam-intro my-4">
-                        <h1>Exa Details</h1>
+                        <h1>Exam Details</h1>
                         <div>
                             <label for="title" class="list-labels">Subject:</label>
                             <label class="fw-bold" for="title">{{ exam.title }}</label>
@@ -86,6 +86,7 @@
                 if (totalSeconds < 0) {
                     clearInterval(timerInterval);
                     document.getElementById('timer-left').textContent = 'Time is up!';
+                    document.getElementById('exam-form').submit();
                 }
             }
         

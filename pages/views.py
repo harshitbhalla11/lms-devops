@@ -108,7 +108,7 @@ def submit_exam(request, exam_id):
             score=total_marks ,
             max_marks=max_marks
         )
-        return redirect('studentExamList')  
+        return redirect('myResults')  
     else:
         return HttpResponse(status=405)
 
