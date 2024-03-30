@@ -22,7 +22,7 @@
         </head>
         <body>
             <div class="container question-container">
-                <h2>Add Question</h2>
+                <h2 class="mb-4">Add Question</h2>
                 <form method="post" id="questionForm"  action="{% url 'add_question' exam.id %}" >
                     {% csrf_token %}
                     <div class="form-group">
@@ -60,7 +60,7 @@
                         <input type="text" class="form-control option-input" id="option4" name="option4">
                     </div>
                    
-                    <button type="submit" class="btn btn-primary" >Add Question</button>
+                    <button type="submit" class="btn btn-primary btn-blue" >Add Question</button>
                 </form>
             </div>
         </body>

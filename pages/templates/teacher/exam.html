@@ -19,11 +19,11 @@
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         </head>
         <body>
-            <div class="container">
+            <div class="container p-3">
                  <form method="post" action="{% url 'update_exam' exam.id %}"
                  >
                     {% csrf_token %}
-                    <h1>Update Exam Details</h1>
+                    <h1 class="mb-4" style="color: #033e8c;">Update Exam Details</h1>
                     <div class="form-group">
                         <label for="title">Title:</label>
                         <input type="text" class="form-control" id="title" name="title" value="{{ exam.title }}">
@@ -32,24 +32,26 @@
                         <label for="description">Description:</label>
                         <textarea class="form-control" id="description" name="description" rows="3">{{ exam.description }}</textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-4">
                         <label for="duration">Duration (in minutes):</label>
-                        <input type="number" class="form-control" id="duration" name="duration" value="{{ exam.duration }}">
+                        <input type="number" class="form-control  w-25" id="duration" name="duration" value="{{ exam.duration }}">
                     </div>
-                    <div class="form-group form-check">
+                    <div class="form-group form-check mb-4">
                         <input type="checkbox" class="form-check-input" id="visibility" name="visibility" {% if exam.visibility %}checked{% endif %}>
                         <label class="form-check-label" for="visibility">Visible to Students</label>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary my-2">Update Details</button>
+                    <button type="submit" class="btn btn-primary my-2 btn-blue">Update Details</button>
                 </form>
+
+                <div class="border-bottom"></div>
 
             
                 {% include 'teacher/addQuestion.html' %}
                 
-                <table class="table table-hover">
+                <table class="table table-hover table-border">
                     <thead>
-                        <tr>
+                        <tr class="table-color">
                             <th>Question</th>
                             <th>Option 1</th>
                             <th>Option 2</th>
