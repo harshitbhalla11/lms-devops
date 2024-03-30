@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Exam, Question, QuizAttempt
 from django.http import HttpResponse
 from .forms import ExamForm
+from django.db.models import Sum
+
 
 def createExam(request):
     return render(request, 'teacher/createExam.html', {})
@@ -32,8 +34,10 @@ def studentExamList(request):
     exams = Exam.objects.filter(visibility=True) 
     return render(request, 'student/studentExamList.html', {'exams': exams})
 
-from django.shortcuts import render, redirect
-from .forms import ExamForm
+# return current student results
+def myResults(request):
+    results = QuizAttempt.objects.filter(student=request.user) 
+    return render(request, 'student/myResults.html', {'results': results})
 
 @login_required
 def create_exam(request):
@@ -93,13 +97,16 @@ def submit_exam(request, exam_id):
                 if request.POST.get(f'question_{question.id}') == str(question.correct_answer):
                     correct_answers += 1
                     total_marks += question.marks
+                    
+        max_marks = exam.questions.aggregate(total_marks=Sum('marks'))['total_marks']
         
         quiz_attempt = QuizAttempt.objects.create(
             student=student,
             exam=exam,
             total_questions=total_questions,
             correct_answers=correct_answers,
-            score=total_marks 
+            score=total_marks ,
+            max_marks=max_marks
         )
         return redirect('studentExamList')  
     else:

@@ -75,7 +75,9 @@
 }
 .list-labels{
     font-size: 20px;
-    color: #033E8C;
+    color: #043473;
+    font-weight: 500;
+    letter-spacing: 0.4px;
 }
 .duration{
     font-weight: 700;
@@ -84,7 +86,7 @@
     border: 1px solid black;
     border-radius: 10px;
     padding: 7px;
-    background-color: beige;
+    background-color: #e2e1e1;
 }
 .timer-container{
 position: fixed;
@@ -97,7 +99,7 @@ top: 80px;
 }
 
 .question{
-    border: 1px solid black;
+    border: 2px solid rgb(218,220,224);
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 10px;
@@ -105,7 +107,7 @@ top: 80px;
 }
 
 .examination-container{
-    background-color: #e1f2f8;
+    background-color: #f0ebf8;
 }
 
 .jumbotron {
@@ -145,4 +147,27 @@ top: 80px;
 }
 .link-home{
     display: inline-block;
+}
+.exam-intro{
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #f8f9fa;
+    border-top: 10px solid rgb(103, 58, 183);
+}
+
+.pass{
+    background-color: rgb(94, 171, 94);
+    padding: 5px 10px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    min-width: 20px;
+    font-weight: 700;
+}
+.fail{
+    background-color: rgb(228, 123, 123);
+    padding: 5px 15px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    
 }

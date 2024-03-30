@@ -27,6 +27,7 @@ class QuizAttempt(models.Model):
     total_questions = models.PositiveIntegerField()
     correct_answers = models.PositiveIntegerField()
     score = models.PositiveIntegerField()
+    max_marks= models.PositiveIntegerField()
 
 
 

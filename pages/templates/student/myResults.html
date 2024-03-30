@@ -1,0 +1,61 @@
+<html>
+    <head>
+         {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'pages/css/global.css' %}">  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap"
+      rel="stylesheet">    
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        
+        <div class="container mt-5">
+            <div class="result-container">
+                <h1 class="mt-5 mb-4"><img width="65px" src="{% static "pages/images/list.png" %}">Exam Results</h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Subject</th>
+                                            <th scope="col">Score</th>
+                                            <th scope="col">Max Marks</th>
+                                            <th scope="col">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for result in results %}
+                                        <tr>
+                                            <td>{{ result.exam.title }}</td>
+                                            <td>{{ result.score }}</td>
+                                            <td>{{ result.max_marks }}</td>
+                                            <td><span id="status_{{ forloop.counter }}"></span></td>
+                                        </tr>
+                                        <script>
+                                            var score = {{ result.score }};
+                                            var maxMarks = {{ result.max_marks }};
+                                            var passFailStatus = score >= (maxMarks * 0.4) ? 'Pass' : 'Fail';
+                                            var statusElement = document.getElementById('status_{{ forloop.counter }}');
+                                            statusElement.textContent = passFailStatus;
+                                            statusElement.className = passFailStatus.toLowerCase(); 
+                                        </script>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        {% include 'footer.html' %}
+    </body>
+</html>
