@@ -27,9 +27,10 @@
 .form-container{
     max-width: 50%;
     margin-top: 100px;
-    border: 1px solid black ;
-     border-radius: 15px;
+    border:1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 15px;
      padding: 40px;
+     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
 .form-group{
     margin-top: 10px;
@@ -77,6 +78,12 @@
     font-size: 20px;
     color: #043473;
     font-weight: 500;
+    letter-spacing: 0.4px;
+}
+.list-label{
+    font-size: 16px;
+    color: #043473;
+    font-weight: 700;
     letter-spacing: 0.4px;
 }
 .duration{
@@ -170,4 +177,14 @@ top: 80px;
     letter-spacing: 1px;
     font-weight: 700;
     
+}
+.bold{
+    font-weight: 500;
+}
+
+.heading-font-1{
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+
 }

@@ -27,9 +27,10 @@
 .form-container{
     max-width: 50%;
     margin-top: 100px;
-    border: 1px solid black ;
-     border-radius: 15px;
+    border:1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 15px;
      padding: 40px;
+     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
 .form-group{
     margin-top: 10px;
@@ -75,7 +76,15 @@
 }
 .list-labels{
     font-size: 20px;
-    color: #033E8C;
+    color: #043473;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+}
+.list-label{
+    font-size: 16px;
+    color: #043473;
+    font-weight: 700;
+    letter-spacing: 0.4px;
 }
 .duration{
     font-weight: 700;
@@ -84,7 +93,7 @@
     border: 1px solid black;
     border-radius: 10px;
     padding: 7px;
-    background-color: beige;
+    background-color: #e2e1e1;
 }
 .timer-container{
 position: fixed;
@@ -97,7 +106,7 @@ top: 80px;
 }
 
 .question{
-    border: 1px solid black;
+    border: 2px solid rgb(218,220,224);
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 10px;
@@ -105,5 +114,77 @@ top: 80px;
 }
 
 .examination-container{
-    background-color: #e1f2f8;
+    background-color: #f0ebf8;
+}
+
+.jumbotron {
+    background-image: url('background-image.jpg');
+    background-size: cover;
+    color: #033E8C;
+    text-shadow: 1px 1px 4px #000000;
+}
+
+.jumbotron h1 {
+    font-size: 3.5rem;
+}
+.feature-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.blinking-dot {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-color: green;
+    border-radius: 50%;
+    animation: blink 1s infinite alternate;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.link-home{
+    display: inline-block;
+}
+.exam-intro{
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #f8f9fa;
+    border-top: 10px solid rgb(103, 58, 183);
+}
+
+.pass{
+    background-color: rgb(94, 171, 94);
+    padding: 5px 10px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    min-width: 20px;
+    font-weight: 700;
+}
+.fail{
+    background-color: rgb(228, 123, 123);
+    padding: 5px 15px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    
+}
+.bold{
+    font-weight: 500;
+}
+
+.heading-font-1{
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+
 }

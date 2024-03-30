@@ -1,0 +1,23 @@
+.auth-container {
+    border: 2px solid #4CAF50;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 #00000033; 
+    background-color: #fbfbfb; 
+}
+
+
+
+
+#adminUserCheckbox{
+    transform:scale(1.4);
+    
+}
+.heading-font{
+    font-family: "Reddit Mono", monospace;
+}
+.reg-container{
+    width: 50%;
+    
+}
+
