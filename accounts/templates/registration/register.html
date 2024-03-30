@@ -5,14 +5,17 @@
   {% bootstrap_css %}
   {% bootstrap_javascript %}
   {% load static %}
-   <link rel="stylesheet" href="{% static 'global.css' %}">  
+   <link rel="stylesheet" href="{% static 'accounts/css/global.css' %}">  
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
 </head>
 
 
 <body>
     {% include 'navbar.html' %}
-    <div class="reg-container">
-        <h1 class="reg-heading">Register</h1>
+    <div class="container auth-container mt-5">
+        <h1 class="reg-heading text-center heading-font">Register</h1>
         <form method="POST">
           
             {% csrf_token %}
@@ -21,9 +24,8 @@
                 <input class="form-check-input admin-checkbox" type="checkbox" name="adminUserCheckbox" id="adminUserCheckbox">
                 <label class="form-check-label label-checkbox" for="flexSwitchCheckDefault">Are you a Teacher.</label>
               </div>
-            {% buttons %}
-                <button type="submit" class="btn btn-primary submit-btn">Submit</button>
-            {% endbuttons %}    
+           
+                <button type="submit" class="btn btn-primary submit-btn mt-3">Submit</button>  
         </form>
 </div>  
 {% include 'footer.html' %}

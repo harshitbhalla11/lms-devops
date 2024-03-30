@@ -50,8 +50,8 @@
     </div>
     <div class="navbar-nav ml-auto nav-button-container">
       {% if not request.user.is_authenticated %}
-      <a href="/login" class="btn btn-outline-primary mx-2 login-button">Login</a>
-      <a href="/signup" class="btn btn-primary register-button mx-2">Register</a>
+      <a href="/login" class="btn btn-outline-dark mx-3 login-button">Login</a>
+      <a href="/signup" class="btn btn-secondary register-button me-3">Register</a>
       {% endif %} 
       {% if request.user.is_authenticated %}
       <li class="nav-item mx-4">

@@ -12,21 +12,58 @@
     </head>
     <body>
         {% include 'navbar.html' %}
-        <!-- <a  href="/creategroup" class="btn btn-primary">Create Group</a> -->
-        <div class="container mt-5">
-            
-            <div class="row mt-2">
-                <img class="col-sm-6" src="{% static 'pages/images/tasks.png' %}" >
-                <div class="col-sm-6">
-                    <h5 class="task-heading mb-4">Manage tasks with ease.</h5>
-                    <div class="row justify-content-center">
-                      
-                      
-                      </div>
-                    </div>
-           
+        <div class="container">
+            {% if user.is_staff %}
+            <div class=" text-center">
+                <h1 class=" jumbotron display-4">Welcome, Teacher!</h1>
+                <p class="lead">Create exams for your students.</p>
+            </div>
+            <div class="row mt-5">
+        <div class="col-5 d-flex align-items-center">
+            <div>
+                <div>
+                    <p class="mb-0">Let's create a new Exam!<span class="blinking-dot"></span></p>
+                </div>
+                <div class="col mt-3">
+                    <a class="btn btn-primary" href="/create_exam">Create Exam</a>
+                </div>
             </div>
         </div>
+
+        <div class="col-7">
+            <img src="{% static 'pages/images/teacher.gif' %}" class="img-fluid" alt="Student Home Image">
+        </div>
+       
+    </div>
+            {% else %}
+            <div class=" text-center">
+                <h1 class=" jumbotron display-4">Welcome, Student!</h1>
+                <p class="lead">Participate in Exam created by your teachers.</p>
+            </div>
+            <div class="row mt-5">
+        <div class="col-5 d-flex align-items-center">
+            <div>
+                <div>
+                    <p class="mb-0">See exams that are live!<span class="blinking-dot"></span></p>
+                </div>
+                <div class="col mt-3">
+                    <a class="btn btn-primary" href="/openExam">Exam List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-7">
+            <img src="{% static 'pages/images/student-home.png' %}" class="img-fluid" alt="Student Home Image">
+        </div>
+       
+    </div>
+
+                        
+        
+            {% endif %}
+        </div>
+
+      
         {% include 'footer.html' %}
     </body>
 </html>

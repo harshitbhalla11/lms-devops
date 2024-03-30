@@ -107,3 +107,42 @@ top: 80px;
 .examination-container{
     background-color: #e1f2f8;
 }
+
+.jumbotron {
+    background-image: url('background-image.jpg');
+    background-size: cover;
+    color: #033E8C;
+    text-shadow: 1px 1px 4px #000000;
+}
+
+.jumbotron h1 {
+    font-size: 3.5rem;
+}
+.feature-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.blinking-dot {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-color: green;
+    border-radius: 50%;
+    animation: blink 1s infinite alternate;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.link-home{
+    display: inline-block;
+}
