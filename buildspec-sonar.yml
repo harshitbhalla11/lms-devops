@@ -1,4 +1,10 @@
 version: 0.2
+env:
+  secrets-manager:
+    LOGIN: x23208813/sonarcloud:sonartoken
+    HOST: x23208813/sonarcloud:HOST
+    Organization: x23208813/sonarcloud:Organization
+    Project: x23208813/sonarcloud:Project
 phases:
   install:
     runtime-versions:
@@ -12,8 +18,8 @@ phases:
       - export PATH=$PATH:/sonar-scanner-5.0.1.3006-linux/bin/
   build:
     commands:
-      - sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.login=3000c6508d46179e387244c5f61b52499481de6c -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=devopslms -Dsonar.organization=harshitnci
+      - sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project -Dsonar.organization=$Organization
       - sleep 5
-      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=devopslms >result.json
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
       - cat result.json
       - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
