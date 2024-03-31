@@ -1,10 +1,4 @@
 version: 0.2
-env:
-  secrets-manager:
-    LOGIN: 4d6653df6abc02719c271369113a69de60ecb186
-    HOST: https://sonarcloud.io
-    Organization: HarshitNci
-    Project: devopskey11
 phases:
   install:
     runtime-versions:
@@ -18,7 +12,7 @@ phases:
       - export PATH=$PATH:/sonar-scanner-5.0.1.3006-linux/bin/
   build:
     commands:
-      - sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project -Dsonar.organization=$Organization
+      - sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.login=4d6653df6abc02719c271369113a69de60ecb186 -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=devopskey11 -Dsonar.organization=HarshitNci
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
       - cat result.json
