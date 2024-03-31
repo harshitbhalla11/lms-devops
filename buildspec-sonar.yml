@@ -1,7 +1,7 @@
 version: 0.2
 env:
   secrets-manager:
-    LOGIN: x23208813-sonar:x23208813-sonar
+    LOGIN: x23208813-sonar:sonartoken
     HOST: x23208813-sonar:HOST
     Organization: x23208813-sonar:Organization
     Project: x23208813-sonar:Project
