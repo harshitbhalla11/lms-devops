@@ -12,7 +12,7 @@ phases:
       - export PATH=$PATH:/sonar-scanner-5.0.1.3006-linux/bin/
   build:
     commands:
-      - sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.login=3000c6508d46179e387244c5f61b52499481de6c -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=devopslms -Dsonar.organization=HarshitNci
+      - sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.login=3000c6508d46179e387244c5f61b52499481de6c -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=devopslms -Dsonar.organization=harshitnci
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
       - cat result.json
