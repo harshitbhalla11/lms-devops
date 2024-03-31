@@ -11,8 +11,8 @@ phases:
       java: corretto21
   pre_build:
     commands:
-      - sudo apt-get update
-      - sudo apt-get install -y jq
+      - apt-get update
+      - apt-get install -y jq
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
       - unzip ./sonar-scanner-cli-5.0.1.3006-linux.zip
       - export PATH=$PATH:/sonar-scanner-5.0.1.3006-linux/bin/
