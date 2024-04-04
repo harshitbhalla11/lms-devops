@@ -110,7 +110,6 @@ def add_question(request, exam_id):
     return redirect('exam', exam_id=exam_id)
 
 
-
 def submit_exam(request, exam_id):
     """
     submit exam view for student.
@@ -147,9 +146,6 @@ def submit_exam(request, exam_id):
         return redirect('myResults')
     else:
         return HttpResponse(status=405)
-
-from django.shortcuts import redirect
-from .models import Exam
 
 def update_exam(request, exam_id):
     """
