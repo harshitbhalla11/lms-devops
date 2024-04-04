@@ -1,3 +1,4 @@
-from django.contrib import admin
-
-# Register your models here.
+"""
+Module: Admin for managing user accounts.
+"""
+# admin.py

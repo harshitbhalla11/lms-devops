@@ -1,3 +1,6 @@
+"""
+Forms for pages app which includes exam form
+"""
 from django import forms
 from .models import Exam
 
