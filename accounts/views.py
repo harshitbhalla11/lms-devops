@@ -8,25 +8,26 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 
-
 @login_required
 def home(request):
-    # Renders the home page if the user is authenticated
+    """
+    Renders the home page if the user is authenticated.
+    """
     return render(request, 'home-page.html', {})
 
-"""
-render home/landing based on whether the user is authenticated.
-"""
 def entry_view(request):
+    """
+    Renders home/landing based on whether the user is authenticated.
+    """
     if request.user.is_authenticated:
         return render(request, 'home-page.html', {})
     else:
         return render(request, 'landing-page.html', {})
 
-"""
-Authentication view for registration of new users
-"""
 def authentication_view(request):
+    """
+    Authentication view for registration of new users.
+    """
     form = UserCreationForm()
     if request.method == 'POST':
         form = UserCreationForm(request.POST or None)
@@ -38,10 +39,10 @@ def authentication_view(request):
             return redirect('/login')
     return render(request, 'registration/register.html', {'form': form})
 
-"""
-Login view for existing users
-"""
 def login_view(request):
+    """
+    Login view for existing users.
+    """
     form = AuthenticationForm()
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
@@ -57,9 +58,9 @@ def login_view(request):
                 return render(request, 'login.html', {'form': form, 'error_message': error_message})
     return render(request, 'registration/login.html', {'form': form})
 
-"""
-Logout view for existing users
-"""
 def logout_view(request):
+    """
+    Logout view for existing users.
+    """
     logout(request)
     return redirect('home')
