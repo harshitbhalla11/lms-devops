@@ -10,7 +10,7 @@ def createExam(request):
     return render(request, 'teacher/createExam.html', {})
 
 def Examlist(request):
-    exams = Exam.objects.all() 
+    exams = Exam.objects.all()
     return render(request, 'teacher/Examlist.html', {'exams': exams})
 
 
@@ -24,19 +24,19 @@ def results(request,id):
     return render (request,'teacher/results.html',{'results':results})
 
 
-# student views 
+# student views
 def examination(request,id):
     exam = Exam.objects.get(id=id)
     questions=Question.objects.filter(exam_id=id)
     return render (request,'student/examination.html', {'exam':exam, 'questions':questions})
 
 def studentExamList(request):
-    exams = Exam.objects.filter(visibility=True) 
+    exams = Exam.objects.filter(visibility=True)
     return render(request, 'student/studentExamList.html', {'exams': exams})
 
 # return current student results
 def myResults(request):
-    results = QuizAttempt.objects.filter(student=request.user) 
+    results = QuizAttempt.objects.filter(student=request.user)
     return render(request, 'student/myResults.html', {'results': results})
 
 @login_required
@@ -73,9 +73,9 @@ def add_question(request, exam_id):
             correct_answer=correct_answer,
             marks=marks
         )
-        return redirect('exam', id=exam_id) 
+        return redirect('exam', id=exam_id)
 
-    return redirect('exam', id=exam_id) 
+    return redirect('exam', id=exam_id)
 
 
 
@@ -88,18 +88,18 @@ def submit_exam(request, exam_id):
         total_questions = 0
         correct_answers = 0
         total_marks = 0
-        
+
         for question in exam.questions.all():
 
             if f'question_{question.id}' in request.POST:
                 total_questions += 1
-                
+
                 if request.POST.get(f'question_{question.id}') == str(question.correct_answer):
                     correct_answers += 1
                     total_marks += question.marks
-                    
+
         max_marks = exam.questions.aggregate(total_marks=Sum('marks'))['total_marks']
-        
+
         quiz_attempt = QuizAttempt.objects.create(
             student=student,
             exam=exam,
@@ -108,7 +108,7 @@ def submit_exam(request, exam_id):
             score=total_marks ,
             max_marks=max_marks
         )
-        return redirect('myResults')  
+        return redirect('myResults')
     else:
         return HttpResponse(status=405)
 
@@ -123,15 +123,15 @@ def update_exam(request, exam_id):
         description = request.POST.get('description')
         duration = request.POST.get('duration')
         visibility = request.POST.get('visibility') == 'on'
-        
+    
         exam.title = title
         exam.description = description
         exam.duration = duration
         exam.visibility = visibility
-        
-        exam.save()
-        
-        return redirect('exam', id=exam_id) 
 
-    return redirect('exam', id=exam_id) 
+        exam.save()
+
+        return redirect('exam', id=exam_id)
+
+    return redirect('exam', id=exam_id)
 
