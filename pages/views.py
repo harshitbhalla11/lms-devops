@@ -124,7 +124,7 @@ def submit_exam(request, exam_id):
         correct_answers = 0
         total_marks = 0
 
-        for question in exam.questions.all():
+        for question in exam_data.questions.all():
 
             if f'question_{question.id}' in request.POST:
                 total_questions += 1
@@ -133,9 +133,9 @@ def submit_exam(request, exam_id):
                     correct_answers += 1
                     total_marks += question.marks
 
-        max_marks = exam.questions.aggregate(total_marks=Sum('marks'))['total_marks']
+        max_marks = exam_data.questions.aggregate(total_marks=Sum('marks'))['total_marks']
 
-        quiz_attempt = QuizAttempt.objects.create(
+        QuizAttempt.objects.create(
             student=student,
             exam=exam_data,
             total_questions=total_questions,
@@ -144,14 +144,13 @@ def submit_exam(request, exam_id):
             max_marks=max_marks
         )
         return redirect('myResults')
-    else:
-        return HttpResponse(status=405)
+    return HttpResponse(status=405)
 
 def update_exam(request, exam_id):
     """
     Update exam view for teacher.
     """
-    exam = Exam.objects.get(id=exam_id)
+    exam_data = Exam.objects.get(id=exam_id)
     if request.method == 'POST':
 
         title = request.POST.get('title')
@@ -159,12 +158,12 @@ def update_exam(request, exam_id):
         duration = request.POST.get('duration')
         visibility = request.POST.get('visibility') == 'on'
 
-        exam.title = title
-        exam.description = description
-        exam.duration = duration
-        exam.visibility = visibility
+        exam_data.title = title
+        exam_data.description = description
+        exam_data.duration = duration
+        exam_data.visibility = visibility
 
-        exam.save()
+        exam_data.save()
 
         return redirect('exam', exam_id=exam_id)
 
