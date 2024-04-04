@@ -9,13 +9,13 @@ from .forms import ExamForm
 from django.db.models import Sum
 
 
-def createExam(request):
+def create_exam(request):
     """
     Create exam view for teachers.
     """
     return render(request, 'teacher/createExam.html', {})
 
-def Examlist(request):
+def exam_list(request):
     """
     Create exam list view for teachers.
     """
@@ -48,7 +48,7 @@ def examination(request,id):
     questions=Question.objects.filter(exam_id=id)
     return render (request,'student/examination.html', {'exam':exam, 'questions':questions})
 
-def studentExamList(request):
+def student_exam_List(request):
     """
     Create examList view for students.
     """
@@ -56,7 +56,7 @@ def studentExamList(request):
     return render(request, 'student/studentExamList.html', {'exams': exams})
 
 # return current student results
-def myResults(request):
+def my_results(request):
     """
     Create my result view for students.
     """
