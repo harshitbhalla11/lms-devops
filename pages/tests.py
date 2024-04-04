@@ -1,3 +1,4 @@
-from django.test import TestCase
-
-# Create your tests here.
+"""
+Module: Contains tests for the 'pages' app.
+"""
+# Your test cases go here
