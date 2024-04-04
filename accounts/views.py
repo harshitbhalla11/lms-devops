@@ -21,8 +21,7 @@ def entry_view(request):
     """
     if request.user.is_authenticated:
         return render(request, 'home-page.html', {})
-    else:
-        return render(request, 'landing-page.html', {})
+    return render(request, 'landing-page.html', {})
 
 def authentication_view(request):
     """
@@ -53,9 +52,8 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 return redirect('/')
-            else:
-                error_message = 'Invalid username or password'
-                return render(request, 'login.html', {'form': form, 'error_message': error_message})
+            error_message = 'Invalid username or password'
+            return render(request, 'login.html', {'form': form, 'error_message': error_message})
     return render(request, 'registration/login.html', {'form': form})
 
 def logout_view(request):
