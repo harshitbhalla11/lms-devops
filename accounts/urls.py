@@ -1,5 +1,5 @@
 """
-Module: URLs configuration for the 'accounts' app.
+Module: URLs configuration for 'accounts' app.
 """
 
 from django.urls import path, include

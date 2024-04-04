@@ -1,6 +1,15 @@
+"""
+Module: URLs configuration for 'lms' app.
+"""
 from django.contrib import admin
 from django.urls import path, include
-from pages.views import createExam, Examlist, create_exam, exam, add_question, results, studentExamList, examination, submit_exam, update_exam, myResults
+from pages.views import (
+    createExam, Examlist, create_exam, exam,
+    add_question, results, studentExamList,
+    examination, submit_exam, update_exam,
+    myResults
+)
+
 from .views import entry_views
 
 urlpatterns = [
