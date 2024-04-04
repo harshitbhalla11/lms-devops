@@ -1,12 +1,14 @@
 """
 Module: Defines views for 'pages' app.
 """
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Exam, Question, QuizAttempt
-from django.http import HttpResponse
-from .forms import ExamForm
 from django.db.models import Sum
+from .models import Exam, Question, QuizAttempt
+from .forms import ExamForm
+
+
 
 
 def create_exam_teacher(request):
@@ -27,16 +29,16 @@ def exam(request, exam_id):
     """
     Create exam edit page for teachers.
     """
-    exam = Exam.objects.get(id=exam_id)
+    exam_data = Exam.objects.get(id=exam_id)
     questions= Question.objects.filter(exam_id=exam_id)
-    return render(request, 'teacher/exam.html', {'exam': exam, 'questions': questions})
+    return render(request, 'teacher/exam.html', {'exam': exam_data, 'questions': questions})
 
 def results(request,exam_id):
     """
     Create exam result view for teachers.
     """
-    results= QuizAttempt.objects.filter(exam_id=exam_id)
-    return render (request,'teacher/results.html',{'results':results})
+    results_data= QuizAttempt.objects.filter(exam_id=exam_id)
+    return render (request,'teacher/results.html',{'results':results_data})
 
 
 # student views
@@ -44,24 +46,24 @@ def examination(request,exam_id):
     """
     Create exam view for students.
     """
-    exam = Exam.objects.get(id=exam_id)
+    exam_data = Exam.objects.get(id=exam_id)
     questions=Question.objects.filter(exam_id=exam_id)
-    return render (request,'student/examination.html', {'exam':exam, 'questions':questions})
+    return render (request,'student/examination.html', {'exam':exam_data, 'questions':questions})
 
 def student_exam_list(request):
     """
     Create examList view for students.
     """
-    exams = Exam.objects.filter(visibility=True)
-    return render(request, 'student/studentExamList.html', {'exams': exams})
+    exams_data = Exam.objects.filter(visibility=True)
+    return render(request, 'student/studentExamList.html', {'exams': exams_data})
 
 # return current student results
 def my_results(request):
     """
     Create my result view for students.
     """
-    results = QuizAttempt.objects.filter(student=request.user)
-    return render(request, 'student/myResults.html', {'results': results})
+    results_data = QuizAttempt.objects.filter(student=request.user)
+    return render(request, 'student/myResults.html', {'results': results_data})
 
 @login_required
 def create_exam(request):
