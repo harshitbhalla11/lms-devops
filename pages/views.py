@@ -73,9 +73,9 @@ def create_exam(request):
     if request.method == 'POST':
         form = ExamForm(request.POST)
         if form.is_valid():
-            exam = form.save(commit=False)
-            exam.teacher = request.user
-            exam.save()
+            exam_form = form.save(commit=False)
+            exam_form.teacher = request.user
+            exam_form.save()
             return redirect('Examlist')
     else:
         form = ExamForm()
@@ -85,7 +85,7 @@ def add_question(request, exam_id):
     """
     store question view for teacher.
     """
-    exam = Exam.objects.get(id=exam_id)
+    exam_data = Exam.objects.get(id=exam_id)
     if request.method == 'POST':
         option1 = request.POST.get('option1')
         option2 = request.POST.get('option2')
@@ -96,7 +96,7 @@ def add_question(request, exam_id):
         question=request.POST.get('question')
 
         question = Question.objects.create(
-            exam=exam,
+            exam=exam_data,
             question=question,
             option1=option1,
             option2=option2,
@@ -116,7 +116,7 @@ def submit_exam(request, exam_id):
     submit exam view for student.
     score calculation and store in database.
     """
-    exam = Exam.objects.get(pk=exam_id)
+    exam_data= Exam.objects.get(pk=exam_id)
 
     if request.method == 'POST':
         student = request.user
@@ -138,7 +138,7 @@ def submit_exam(request, exam_id):
 
         quiz_attempt = QuizAttempt.objects.create(
             student=student,
-            exam=exam,
+            exam=exam_data,
             total_questions=total_questions,
             correct_answers=correct_answers,
             score=total_marks ,
