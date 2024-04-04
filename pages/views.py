@@ -23,12 +23,12 @@ def exam_list(request):
     return render(request, 'teacher/Examlist.html', {'exams': exams})
 
 
-def exam(request, id):
+def exam(request, exam_id):
     """
     Create exam edit page for teachers.
     """
-    exam = Exam.objects.get(id=id)
-    questions= Question.objects.filter(exam_id=id)
+    exam = Exam.objects.get(id=exam_id)
+    questions= Question.objects.filter(exam_id=exam_id)
     return render(request, 'teacher/exam.html', {'exam': exam, 'questions': questions})
 
 def results(request,id):
