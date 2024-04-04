@@ -22,7 +22,7 @@
                         <div class="d-flex justify-content-between">
                             <h5 class="exam-title mb-1">{{ exam.title }}</h5>
                             <div class="d-flex align-items-center">
-                                <a href="{% url 'examination' id=exam.id %}" class="btn btn-primary btn-sm mx-3">Start Exam</a>
+                                <a href="{% url 'examination' exam_id=exam.id %}" class="btn btn-primary btn-sm mx-3">Start Exam</a>
                                
                             </div>
                         </div>

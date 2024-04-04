@@ -103,9 +103,9 @@ def add_question(request, exam_id):
             correct_answer=correct_answer,
             marks=marks
         )
-        return redirect('exam', id=exam_id)
+        return redirect('exam', exam_id=exam_id)
 
-    return redirect('exam', id=exam_id)
+    return redirect('exam', exam_id=exam_id)
 
 
 
@@ -168,6 +168,6 @@ def update_exam(request, exam_id):
 
         exam.save()
 
-        return redirect('exam', id=exam_id)
+        return redirect('exam', exam_id=exam_id)
 
-    return redirect('exam', id=exam_id)
+    return redirect('exam', exam_id=exam_id)

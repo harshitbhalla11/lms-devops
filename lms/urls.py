@@ -18,10 +18,10 @@ urlpatterns = [
     path('', entry_views, name='home'),
     path('createExam/', create_exam_teacher, name='createExam'),
     path('Examlist/', exam_list, name='Examlist'),
-    path('exam/<int:id>/', exam, name='exam'),
-    path('results/<int:id>/', results, name='results'),
+    path('exam/<int:exam_id>/', exam, name='exam'),
+    path('results/<int:exam_id>/', results, name='results'),
     path('openExam/', student_exam_list, name='studentExamList'),
-    path('examination/<int:id>/', examination, name='examination'),
+    path('examination/<int:exam_id>/', examination, name='examination'),
     path('myResults/', my_results, name='myResults'),
 
     path('create_exam/', create_exam, name='create_exam'),
