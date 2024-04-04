@@ -1,8 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import User
 
 class Exam(models.Model):
+    """
+    Model representing an exam.
+    """
     title = models.CharField(max_length=100)
     description = models.TextField()
     duration = models.IntegerField()
@@ -10,8 +12,11 @@ class Exam(models.Model):
     visibility = models.BooleanField(default=False)
 
 class Question(models.Model):
+    """
+    Model representing a question in an exam.
+    """
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE, related_name='questions')
-    question= models.CharField(default ='', max_length=50)
+    question = models.CharField(default='', max_length=50)
     option1 = models.CharField(max_length=100)
     option2 = models.CharField(max_length=100)
     option3 = models.CharField(max_length=100)
@@ -19,17 +24,14 @@ class Question(models.Model):
     correct_answer = models.IntegerField()
     marks = models.IntegerField(default=1)
 
-
 class QuizAttempt(models.Model):
+    """
+    Model representing a quiz attempt by a student.
+    """
     student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='quiz_attempts')
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
     submission_time = models.DateTimeField(auto_now_add=True)
     total_questions = models.PositiveIntegerField()
     correct_answers = models.PositiveIntegerField()
     score = models.PositiveIntegerField()
-    max_marks= models.PositiveIntegerField()
-
-
-
-
-    
+    max_marks = models.PositiveIntegerField()
