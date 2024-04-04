@@ -31,21 +31,21 @@ def exam(request, exam_id):
     questions= Question.objects.filter(exam_id=exam_id)
     return render(request, 'teacher/exam.html', {'exam': exam, 'questions': questions})
 
-def results(request,id):
+def results(request,exam_id):
     """
     Create exam result view for teachers.
     """
-    results= QuizAttempt.objects.filter(exam_id=id)
+    results= QuizAttempt.objects.filter(exam_id=exam_id)
     return render (request,'teacher/results.html',{'results':results})
 
 
 # student views
-def examination(request,id):
+def examination(request,exam_id):
     """
     Create exam view for students.
     """
-    exam = Exam.objects.get(id=id)
-    questions=Question.objects.filter(exam_id=id)
+    exam = Exam.objects.get(id=exam_id)
+    questions=Question.objects.filter(exam_id=exam_id)
     return render (request,'student/examination.html', {'exam':exam, 'questions':questions})
 
 def student_exam_list(request):
