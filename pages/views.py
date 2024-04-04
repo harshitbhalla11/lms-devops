@@ -1,3 +1,6 @@
+"""
+Module: Defines views for 'pages' app.
+"""
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Exam, Question, QuizAttempt
@@ -7,40 +10,64 @@ from django.db.models import Sum
 
 
 def createExam(request):
+    """
+    Create exam view for teachers.
+    """
     return render(request, 'teacher/createExam.html', {})
 
 def Examlist(request):
+    """
+    Create exam list view for teachers.
+    """
     exams = Exam.objects.all()
     return render(request, 'teacher/Examlist.html', {'exams': exams})
 
 
 def exam(request, id):
+    """
+    Create exam edit page for teachers.
+    """
     exam = Exam.objects.get(id=id)
     questions= Question.objects.filter(exam_id=id)
     return render(request, 'teacher/exam.html', {'exam': exam, 'questions': questions})
 
 def results(request,id):
+    """
+    Create exam result view for teachers.
+    """
     results= QuizAttempt.objects.filter(exam_id=id)
     return render (request,'teacher/results.html',{'results':results})
 
 
 # student views
 def examination(request,id):
+    """
+    Create exam view for students.
+    """
     exam = Exam.objects.get(id=id)
     questions=Question.objects.filter(exam_id=id)
     return render (request,'student/examination.html', {'exam':exam, 'questions':questions})
 
 def studentExamList(request):
+    """
+    Create examList view for students.
+    """
     exams = Exam.objects.filter(visibility=True)
     return render(request, 'student/studentExamList.html', {'exams': exams})
 
 # return current student results
 def myResults(request):
+    """
+    Create my result view for students.
+    """
     results = QuizAttempt.objects.filter(student=request.user)
     return render(request, 'student/myResults.html', {'results': results})
 
 @login_required
 def create_exam(request):
+    """
+    store exam view for teacher.
+    """
     if request.method == 'POST':
         form = ExamForm(request.POST)
         if form.is_valid():
@@ -53,6 +80,9 @@ def create_exam(request):
     return render(request, 'teacher/createExam.html', {'form': form})
 
 def add_question(request, exam_id):
+    """
+    store question view for teacher.
+    """
     exam = Exam.objects.get(id=exam_id)
     if request.method == 'POST':
         option1 = request.POST.get('option1')
@@ -80,6 +110,10 @@ def add_question(request, exam_id):
 
 
 def submit_exam(request, exam_id):
+    """
+    submit exam view for student.
+    score calculation and store in database.
+    """
     exam = Exam.objects.get(pk=exam_id)
 
     if request.method == 'POST':
@@ -116,6 +150,9 @@ from django.shortcuts import redirect
 from .models import Exam
 
 def update_exam(request, exam_id):
+    """
+    Update exam view for teacher.
+    """
     exam = Exam.objects.get(id=exam_id)
     if request.method == 'POST':
 
@@ -123,7 +160,7 @@ def update_exam(request, exam_id):
         description = request.POST.get('description')
         duration = request.POST.get('duration')
         visibility = request.POST.get('visibility') == 'on'
-    
+
         exam.title = title
         exam.description = description
         exam.duration = duration
@@ -134,4 +171,3 @@ def update_exam(request, exam_id):
         return redirect('exam', id=exam_id)
 
     return redirect('exam', id=exam_id)
-
