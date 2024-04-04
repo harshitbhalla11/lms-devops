@@ -12,7 +12,7 @@ phases:
     commands:
       - python --version
       - pylint $CODEBUILD_SRC_DIR/*.py
-      - pylint —disable=E1101 $CODEBUILD_SRC_DIR/**/*.py
+      - pylint --disable=E1101 "$CODEBUILD_SRC_DIR"/**/*.py
 
 artifacts:
   files:
