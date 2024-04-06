@@ -21,7 +21,8 @@ def entry_view(request):
     """
     if request.user.is_authenticated:
         return render(request, 'home-page.html', {})
-    return render(request, 'landing-page.html', {})
+    else:
+        return render(request, 'landing-page.html', {})
 
 def authentication_view(request):
     """
