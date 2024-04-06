@@ -88,6 +88,7 @@
 }
 .duration{
     font-weight: 700;
+    min-width: 70px
 }
 .timer{
     border: 1px solid black;
@@ -101,9 +102,7 @@ right: 20px;
 top: 75px;
 
 }
-.duration{
-    min-width: 70px
-}
+
 
 .question{
     border: 2px solid rgb(218,220,224);
