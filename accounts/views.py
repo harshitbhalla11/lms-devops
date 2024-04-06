@@ -23,20 +23,21 @@ def entry_view(request):
         return render(request, 'home-page.html', {})
     else:
         return render(request, 'landing-page.html', {})
-
 def authentication_view(request):
     """
     Authentication view for registration of new users.
     """
-    form = UserCreationForm()
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST or None)
+    if request.method == 'POST': 
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             if 'adminUserCheckbox' in request.POST:
                 user.is_staff = True
             user.save()
-            return redirect('/login')
+            return redirect('/login') 
+    else:
+        form = UserCreationForm() 
+    
     return render(request, 'registration/register.html', {'form': form})
 
 def login_view(request):
