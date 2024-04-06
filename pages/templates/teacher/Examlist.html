@@ -1,24 +1,25 @@
+<!DOCTYPE html>
 <html lang="en" xml:lang="en">
     <head>
-         {% load bootstrap5 %}
-  {% bootstrap_css %}
-  {% bootstrap_javascript %}
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'pages/css/global.css' %}">  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap"
-      rel="stylesheet">    
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'pages/css/global.css' %}">  
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap"
+            rel="stylesheet">    
     </head>
     <body>
         {% include 'navbar.html' %}
-        <!DOCTYPE html>
+  
         <html lang="en">
         <head>
             <title>Exam List</title>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         </head>
-        <body>
+     
             <div class="container">
                 <h1 class="mt-5 mb-4"><img width="65px" src="{% static "pages/images/list.png" %}">Exam List</h1>
                 <div class="list-group">
@@ -38,9 +39,6 @@
                     {% endfor %}
                 </div>
             </div>
-        </body>
-        </html>
-        
         {% include 'footer.html' %}
     </body>
 </html>

@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
 
-<head>
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-    {% load static %}
-     <link rel="stylesheet" href="{% static 'pages/css/global.css' %}">  
+    <head>
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'pages/css/global.css' %}">  
    </head>
 
-<body>
-    <footer>
-        <div class="container py-4 py-lg-5">
-            
-            <hr>
-            <div class="d-flex justify-content-between align-items-center pt-3">
-                <p class="text-muted mb-0">Copyright © 2024 Smart Student</p>
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item">
-                        {% comment %} {% bs_icon 'facebook' %} {% endcomment %}
-                    </li>
-                    <li class="list-inline-item">
-                        {% comment %} {% bs_icon 'whatsapp' %} {% endcomment %}
-                    </li>
-                    <li class="list-inline-item">
-                        {% comment %} {% bs_icon 'twitter-x' %} {% endcomment %}
-                    </li>
-                </ul>
+    <body>
+        <footer>
+            <div class="container py-4 py-lg-5">
+                
+                <hr>
+                <div class="d-flex justify-content-between align-items-center pt-3">
+                    <p class="text-muted mb-0">Copyright © 2024 Smart Student</p>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            {% comment %} {% bs_icon 'facebook' %} {% endcomment %}
+                        </li>
+                        <li class="list-inline-item">
+                            {% comment %} {% bs_icon 'whatsapp' %} {% endcomment %}
+                        </li>
+                        <li class="list-inline-item">
+                            {% comment %} {% bs_icon 'twitter-x' %} {% endcomment %}
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </footer>
-</body>
+        </footer>
+    </body>
 
 </html>
