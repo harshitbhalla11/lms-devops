@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
 ]
 
 
+
 CSRF_TRUSTED_ORIGINS = [
     "https://898bd42e51fe407bb38a49362cce3a57.vfs.cloud9.eu-west-1.amazonaws.com",
 ]
