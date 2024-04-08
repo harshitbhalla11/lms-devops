@@ -33,12 +33,18 @@ def exam(request, exam_id):
     questions= Question.objects.filter(exam_id=exam_id)
     return render(request, 'teacher/exam.html', {'exam': exam_data, 'questions': questions})
 
-def results(request,exam_id):
+def results(request, exam_id):
     """
-    Create exam result view for teachers.
+    Show exam result view for teachers which supports student search
     """
-    results_data= QuizAttempt.objects.filter(exam_id=exam_id)
-    return render (request,'teacher/results.html',{'results':results_data})
+    results_data = QuizAttempt.objects.filter(exam_id=exam_id)
+    
+    search_query = request.GET.get('searchedName')
+    if search_query:
+        results_data = results_data.filter(student__username__icontains=search_query)
+    
+    return render(request, 'teacher/results.html', {'results': results_data})
+
 
 
 # student views

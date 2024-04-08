@@ -20,12 +20,12 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'x23208813-env.eba-pgt9f7ah.eu-west-1.elasticbeanstalk.com',
     'x23208813-lms-env.eba-qrqmevzk.eu-west-1.elasticbeanstalk.com',
-    '898bd42e51fe407bb38a49362cce3a57.vfs.cloud9.eu-west-1.amazonaws.com',
+    'e004459438834f779fa5b8de6f0cbe3c.vfs.cloud9.eu-west-1.amazonaws.com',
     '127.0.0.1'
 ]
 

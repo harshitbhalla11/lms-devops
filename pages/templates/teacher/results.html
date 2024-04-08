@@ -17,6 +17,17 @@
         <div class="container mt-5">
             <div class="result-container">
                 <h1 class="mt-5 mb-4"><img width="65px" src="{% static "pages/images/list.png" %} " alt="Image">Exam Results</h1>
+                  <div class="search-container mb-3">
+                    <form method="GET" class="row g-3">
+                        <div class="col-auto">
+                            <label for="searchInput" class="visually-hidden">Search Student</label>
+                            <input type="text" name="searchedName" id="searchInput" class="form-control" placeholder="Search Student" value="{{ request.GET.searchedName }}">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-3">Search</button>
+                        </div>
+                    </form>
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card mb-3">
